@@ -1,3 +1,41 @@
-h1 {
-  color: #2345ac;
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #34db7a;
+}
+
+/* Container */
+.container {
+  background-color: #fff;
+  height: 260px;
+  width: 400px;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.2s;
+}
+
+/* Header */
+#qr-header {
+  text-align: center;
+}
+
+#qr-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+#qr-header p {
+  color: #444;
+  font-size: 1rem;
 }
