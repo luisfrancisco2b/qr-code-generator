@@ -99,3 +99,13 @@ body {
 .container.active #qr-code {
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 250px;
+    height: 320px;
+  }
+  .container.active {
+  height: 550px;
+}
+}
