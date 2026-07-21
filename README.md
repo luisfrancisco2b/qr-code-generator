@@ -53,7 +53,7 @@ cd qr-code-generator
 ```bash
 Since this is a front-end application, you can run it directly.
 
-Open Open the `index.html` file in your browser, or run it using an extension like **Live Server** in VS Code:
+Open the `index.html` file in your browser, or run it using an extension like **Live Server** in VS Code:
 
 http://127.0.0.1:5500/index.html
 ```
