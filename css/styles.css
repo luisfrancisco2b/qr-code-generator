@@ -100,12 +100,53 @@ body {
   opacity: 1;
 }
 
+#qr-actions {
+  display: none;
+  gap: 10px;
+  margin: 0 15px 20px;
+}
+
+.container.active #qr-actions {
+  display: flex;
+}
+
+#qr-actions button {
+  flex: 1;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+#qr-actions #copy-btn {
+  background-color: #0362fc;
+}
+
+#qr-actions #clear-btn {
+  background-color: #fc033d;
+}
+
+#qr-actions #copy-btn:hover,
+#qr-actions #clear-btn:hover {
+  transform: translateY(-5px);
+}
+
+#qr-actions #copy-btn:active,
+#qr-actions #clear-btn:active {
+  transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
   .container {
     width: 250px;
     height: 320px;
   }
   .container.active {
-  height: 550px;
-}
+    height: 800px;
+  }
 }
