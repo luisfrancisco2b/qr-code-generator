@@ -25,7 +25,7 @@ body {
 }
 
 .container.active {
-  height: 500px;
+  height: 550px;
 }
 
 /* Header */
@@ -143,10 +143,16 @@ body {
 
 @media (max-width: 768px) {
   .container {
+    margin: 20px auto;
     width: 250px;
     height: 320px;
   }
   .container.active {
-    height: 800px;
+    height: 650px;
+  }
+
+  .container.active #qr-actions {
+    display: flex;
+    flex-direction: column;
   }
 }
