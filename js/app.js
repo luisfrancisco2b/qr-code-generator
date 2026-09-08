@@ -43,17 +43,27 @@ const clearForm = () => {
 // Copy generated qr code
 async function copyQrCode() {
   try {
+    /* Fetch the QR Code image (same URl shown on screen) to get its binary data,
+    not just the visual reference */
     const response = await fetch(qrCodeImg.src);
+
+    /* Convert the response into a Blob (binary object data), the format
+    required by the Clipboard API */
     const blob = await response.blob();
 
+    // Write the blob to the system clipboard
     await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
 
-    copyBtn.innerText = "QR Code Gerado com Sucesso!";
+    // Visual success feedback on the button
+    copyBtn.innerText = "QR Code Copiado com Sucesso!";
 
+    // Revert the button text after 3s
     setTimeout(() => {
       copyBtn.innerText = "Copiar!";
     }, 3000);
   } catch (error) {
+
+    // If falls here, the browser doesn't support image Clipboard API
     console.log("Erro ao copiar o QR Code:", error);
     copyBtn.innerText = "Erro ao copiar o QR Code!";
 
@@ -90,6 +100,7 @@ clearBtn.addEventListener("click", () => {
   clearForm();
 });
 
+// Click event to copy generated qr code
 copyBtn.addEventListener("click", () => {
   copyQrCode();
 });
