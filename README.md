@@ -6,10 +6,18 @@ A modern, responsive, and elegant web application for instant QR Code generation
 
 ## 📸 Preview
 
-<p align="center">
-  <img src="./img/desktop-preview.png" alt="Desktop Preview" width="65%">
-  <img src="./img/mobile-preview.png" alt="Mobile Preview" width="28%" style="margin-left: 2%;">
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="65%"><strong>Desktop</strong></td>
+    <td align="center" width="28%"><strong>Mobile</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./img/desktop-preview.png" alt="Desktop Preview" width="100%"></td>
+    <td align="center"><img src="./img/mobile-preview.png" alt="Mobile Preview" width="100%"></td>
+  </tr>
+</table>
+
+---
 
 ## 🚀 Technologies Used
 
