@@ -44,12 +44,22 @@ const clearForm = () => {
 async function copyQrCode() {
   try {
     const response = await fetch(qrCodeImg.src);
-    const blog = await response.blog();
+    const blob = await response.blob();
 
-    
+    await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
 
+    copyBtn.innerText = "QR Code Gerado com Sucesso!";
+
+    setTimeout(() => {
+      copyBtn.innerText = "Copiar!";
+    }, 3000);
   } catch (error) {
-    console.log(error);
+    console.log("Erro ao copiar o QR Code:", error);
+    copyBtn.innerText = "Erro ao copiar o QR Code!";
+
+    setTimeout(() => {
+      copyBtn.innerText = "Copiar!";
+    }, 3000);
   }
 }
 
@@ -80,4 +90,6 @@ clearBtn.addEventListener("click", () => {
   clearForm();
 });
 
-copyBtn.addEventListener("click", () => {});
+copyBtn.addEventListener("click", () => {
+  copyQrCode();
+});
