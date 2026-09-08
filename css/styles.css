@@ -100,6 +100,8 @@ body {
   opacity: 1;
 }
 
+/* QR Code Actions */
+
 #qr-actions {
   display: none;
   gap: 10px;
@@ -138,7 +140,7 @@ body {
 
 #qr-actions #copy-btn:active,
 #qr-actions #clear-btn:active {
-  transform: scale(1.1);
+  transform: scale(0.91);
 }
 
 @media (max-width: 768px) {
@@ -152,7 +154,6 @@ body {
   }
 
   .container.active #qr-actions {
-    display: flex;
     flex-direction: column;
   }
 }

@@ -6,10 +6,11 @@ const qrCodeInput = document.querySelector("#qr-form input");
 
 const qrCodeImg = document.querySelector("#qr-code img");
 
+const clearBtn = document.querySelector("#clear-btn");
+
 // Function
 // Generate QR Code
 function generateQrCode() {
-
   // Get the text or link the user typed
   const qrCodeInputValue = qrCodeInput.value;
 
@@ -22,13 +23,21 @@ function generateQrCode() {
   // Change the src property of the HTML image, concatenating the API link with the value entered by the user
   qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrCodeInputValue}`;
 
-  // Triggers the "load" event for the 'img' tag, adds the ".active" class and changes the button text 
+  // Triggers the "load" event for the 'img' tag, adds the ".active" class and changes the button text
   qrCodeImg.addEventListener("load", () => {
     container.classList.add("active");
 
     qrCodeBtn.innerText = "QR Code Gerado!";
   });
 }
+
+// Clear Input
+const clearInput = () => {
+  qrCodeInput.value = "";
+  qrCodeInput.focus();
+  container.classList.remove("active");
+  qrCodeBtn.innerText = "Gerar QR Code";
+};
 
 // Events
 // Click event to call the QR Code generation function
@@ -50,4 +59,9 @@ qrCodeInput.addEventListener("keyup", () => {
 
     qrCodeBtn.innerText = "Gerar QR Code";
   }
+});
+
+// Click event to clear input and qrcode img
+clearBtn.addEventListener("click", () => {
+  clearInput();
 });
