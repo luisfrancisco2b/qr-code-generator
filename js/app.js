@@ -7,6 +7,7 @@ const qrCodeInput = document.querySelector("#qr-form input");
 const qrCodeImg = document.querySelector("#qr-code img");
 
 const clearBtn = document.querySelector("#clear-btn");
+const copyBtn = document.querySelector("#copy-btn");
 
 // Function
 // Generate QR Code
@@ -31,13 +32,26 @@ function generateQrCode() {
   });
 }
 
-// Clear Input
-const clearInput = () => {
+// Clear Input and qr code image
+const clearForm = () => {
   qrCodeInput.value = "";
   qrCodeInput.focus();
   container.classList.remove("active");
   qrCodeBtn.innerText = "Gerar QR Code";
 };
+
+// Copy generated qr code
+async function copyQrCode() {
+  try {
+    const response = await fetch(qrCodeImg.src);
+    const blog = await response.blog();
+
+    
+
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // Events
 // Click event to call the QR Code generation function
@@ -63,5 +77,7 @@ qrCodeInput.addEventListener("keyup", () => {
 
 // Click event to clear input and qrcode img
 clearBtn.addEventListener("click", () => {
-  clearInput();
+  clearForm();
 });
+
+copyBtn.addEventListener("click", () => {});
