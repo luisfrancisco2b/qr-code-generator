@@ -1,6 +1,6 @@
 # 🎯 QR Code Generator
 
-A modern, responsive, and elegant web application for instant QR Code generation, featuring real-time API integration, dynamic visual states, and clean user experience handling.
+A modern, responsive, and elegant web application for instant QR Code generation, featuring real-time API integration, clipboard support, dynamic visual states, and clean user experience handling.
 
 ---
 
@@ -19,6 +19,7 @@ A modern, responsive, and elegant web application for instant QR Code generation
   - Asynchronous image loading synchronization (`load` event) to ensure seamless UI state transitions.
   - Dynamic event listeners (`click`, `keydown`, `keyup`) handling form input and automatic cleanup.
   - Template literals for dynamic external REST API URL string construction.
+  - Clipboard API (`navigator.clipboard.write`) with `Blob` and `ClipboardItem` for copying the generated QR Code image directly to the system clipboard.
 
 ---
 
@@ -31,6 +32,10 @@ The main objective of this project was to master external API integration, async
 2. **Input Validation & Early Return Guard:** Implementing a secure execution guard (`if (!qrCodeInputValue) return;`) to instantly validate user input, preventing empty requests and optimizing application flow.
 
 3. **Real-time Reactive Cleanup (`keyup` Event):** Monitoring user interactions on-the-fly to detect when the input field is fully cleared (`Back-space`/`Delete`), automatically resetting container visibility and button text states.
+
+4. **Clipboard Integration via Blob Conversion:** Fetching the generated QR Code image (`fetch(qrCodeImg.src)`) and converting the response into a `Blob` to satisfy the Clipboard API's binary data requirement, then writing it to the system clipboard with `navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })])`.
+
+5. **UI State Consistency Across Actions:** Resetting the copy button's feedback text at the start of each new QR Code generation, ensuring visual feedback from a previous action (e.g., "Copied!") never persists incorrectly onto a newly generated QR Code.
 
 ---
 
