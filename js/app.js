@@ -18,18 +18,13 @@ function generateQrCode() {
   // Check: if there is no input value, function execution is cancelled
   if (!qrCodeInputValue) return;
 
+  copyBtn.innerText = "Copiar!";
+
   // Visual feedback
   qrCodeBtn.innerText = "Gerando QrCode...";
 
   // Change the src property of the HTML image, concatenating the API link with the value entered by the user
   qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${qrCodeInputValue}`;
-
-  // Triggers the "load" event for the 'img' tag, adds the ".active" class and changes the button text
-  qrCodeImg.addEventListener("load", () => {
-    container.classList.add("active");
-
-    qrCodeBtn.innerText = "QR Code Gerado!";
-  });
 }
 
 // Clear Input and qr code image
@@ -43,7 +38,7 @@ const clearForm = () => {
 // Copy generated qr code
 async function copyQrCode() {
   try {
-    /* Fetch the QR Code image (same URl shown on screen) to get its binary data,
+    /* Fetch the QR Code image (same URL shown on screen) to get its binary data,
     not just the visual reference */
     const response = await fetch(qrCodeImg.src);
 
@@ -62,7 +57,6 @@ async function copyQrCode() {
       copyBtn.innerText = "Copiar!";
     }, 3000);
   } catch (error) {
-
     // If falls here, the browser doesn't support image Clipboard API
     console.log("Erro ao copiar o QR Code:", error);
     copyBtn.innerText = "Erro ao copiar o QR Code!";
@@ -77,6 +71,13 @@ async function copyQrCode() {
 // Click event to call the QR Code generation function
 qrCodeBtn.addEventListener("click", () => {
   generateQrCode();
+});
+
+// Triggers the "load" event for the 'img' tag, adds the ".active" class and changes the button text
+qrCodeImg.addEventListener("load", () => {
+  container.classList.add("active");
+
+  qrCodeBtn.innerText = "QR Code Gerado!";
 });
 
 // Triggers the function when the user presses the Enter key
